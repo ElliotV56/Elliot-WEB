@@ -238,8 +238,9 @@
             right: 20px;
         }
     </style>
+    <!-- تم تصحيح روابط الخطوط والأيقونات -->
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="cyber-container">
@@ -262,7 +263,7 @@
             <h2>// NETWORK_ACCESS</h2>
             <div class="social-links">
                 <a href="https://discord.gg/shabgded" class="social-link"><i class="fab fa-discord"></i> DISCORD</a>
-                <a href="https://github.com/ElliotV56" class="social-link"><i class="fab fa-Github"></i> GITHUB</a>
+                <a href="https://github.com/ElliotV56" class="social-link"><i class="fab fa-github"></i> GITHUB</a>
                 <a href="https://discord.gg/MXaG53Z5PC" class="social-link"><i class="fas fa-code"></i> DEV-TUBERS</a>
                 <a href="https://instagram.com/mohhev.10" class="social-link"><i class="fab fa-instagram"></i> INSTAGRAM</a>
                 <a href="https://youtube.com/@fr3onty" class="social-link"><i class="fab fa-youtube"></i> YOUTUBE</a>
@@ -337,16 +338,6 @@
                 el.style.opacity = '0';
                 el.style.animation = 'fadeIn 1s forwards';
             });
-        });
-        
-        // Add scanline effect to container
-        const container = document.querySelector('.cyber-container');
-        container.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            container.style.setProperty('--mouse-x', x);
-            container.style.setProperty('--mouse-y', y);
         });
     </script>
 </body>
