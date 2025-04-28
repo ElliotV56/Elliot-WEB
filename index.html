@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elliot | CyberSec Engineer & Game Dev</title>
+    <style>
+        :root {
+            /* Cyberpunk Extreme Color Scheme */
+            --neon-pink: #ff00ff;
+            --neon-blue: #00f0ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #000000;
+            --darker-bg: #050510;
+            --terminal-text: #ffffff;
+            --accent: #4d00ff;
+            --glow: 0 0 20px;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--terminal-text);
+            font-family: 'Rajdhani', 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(188, 19, 254, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(0, 240, 255, 0.15) 0%, transparent 30%);
+        }
+        
+        .cyber-container {
+            border: 2px solid var(--neon-pink);
+            box-shadow: 
+                var(--glow) var(--neon-purple),
+                var(--glow) var(--neon-blue);
+            margin: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-container::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 1px solid var(--neon-blue);
+            pointer-events: none;
+            animation: pulse 4s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+        
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--neon-blue);
+            position: relative;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--neon-pink), 
+                var(--neon-blue), 
+                transparent);
+        }
+        
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--neon-pink);
+            box-shadow: 
+                0 0 25px var(--neon-purple),
+                0 0 15px var(--neon-blue);
+            object-fit: cover;
+            filter: saturate(1.5);
+            transition: all 0.3s;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 35px var(--neon-purple),
+                0 0 25px var(--neon-blue);
+        }
+        
+        h1, h2, h3 {
+            color: var(--neon-blue);
+            text-shadow: 
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-purple);
+            letter-spacing: 2px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 0.5rem 0;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: titleGlow 2s infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 10px var(--neon-blue); }
+            100% { text-shadow: 0 0 20px var(--neon-purple); }
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 25px;
+            background-color: rgba(5, 5, 16, 0.8);
+            border-left: 4px solid var(--neon-pink);
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 5px 25px var(--neon-purple),
+                0 -5px 25px var(--neon-blue);
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .tech-category {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border: 1px solid var(--neon-blue);
+            transition: all 0.3s;
+        }
+        
+        .tech-category:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-color: var(--neon-pink);
+            transform: scale(1.03);
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .social-link {
+            padding: 12px 25px;
+            background-color: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--terminal-text);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 240, 255, 0.3), 
+                transparent);
+            transition: all 0.5s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--neon-purple);
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-purple);
+            transform: translateY(-3px);
+        }
+        
+        .social-link:hover::before {
+            left: 100%;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin: 40px 0;
+            padding: 25px;
+            border-top: 1px solid var(--neon-blue);
+            border-bottom: 1px solid var(--neon-blue);
+            position: relative;
+            font-size: 1.2rem;
+        }
+        
+        .quote::before, .quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--neon-pink);
+            opacity: 0.7;
+            position: absolute;
+        }
+        
+        .quote::before {
+            top: 10px;
+            left: 20px;
+        }
+        
+        .quote::after {
+            bottom: 10px;
+            right: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="cyber-container">
+        <header>
+            <img src="https://avatars.githubusercontent.com/u/174315299" alt="Profile" class="profile-img">
+            <h1>ELLIOT</h1>
+            <h3>⚡ CYBERSEC ENGINEER | GAME DEV | FULL-STACK SPECIALIST ⚡</h3>
+        </header>
+        
+        <div class="section">
+            <h2>// ABOUT_ME</h2>
+            <p>
+                🎮 SENIOR GAME DEVELOPER | 🔐 ELITE SECURITY RESEARCHER | 💻 FULL-STACK ARCHITECT<br>
+                🔭 CURRENTLY BUILDING <strong>ELLIOT-TOOL v2.0</strong> (ADVANCED CYBER FRAMEWORK)<br>
+                🌱 MASTERING <strong>AI EXPLOITS | ZERO-DAY RESEARCH | UNREAL ENGINE 5</strong>
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>// NETWORK_ACCESS</h2>
+            <div class="social-links">
+                <a href="https://discord.gg/shabgded" class="social-link"><i class="fab fa-discord"></i> DISCORD</a>
+                <a href="https://github.com/ElliotV56" class="social-link"><i class="fab fa-Github"></i> GITHUB</a>
+                <a href="https://discord.gg/MXaG53Z5PC" class="social-link"><i class="fas fa-code"></i> DEV-TUBERS</a>
+                <a href="https://instagram.com/mohhev.10" class="social-link"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                <a href="https://youtube.com/@fr3onty" class="social-link"><i class="fab fa-youtube"></i> YOUTUBE</a>
+                <a href="https://tryhackme.com/p/moslah262010" class="social-link"><i class="fas fa-shield-alt"></i> TRYHACKME</a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>// TECH_STACK</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>🕹️ GAME_DEV</h3>
+                    <p>> Godot Engine</p>
+                    <p>> Blender</p>
+                    <p>> HLSL/GLSL</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>🔐 CYBERSEC</h3>
+                    <p>> Kali Linux</p>
+                    <p>> Metasploit</p>
+                    <p>> Ghidra</p>
+                    <p>> Wireshark</p>
+                    <p>> Burp Suite</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>💾 BACKEND</h3>
+                    <p>> Node.js</p>
+                    <p>> Rust</p>
+                    <p>> MongoDB</p>
+                    <p>> PostgreSQL</p>
+                    <p>> Redis</p>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>🌐 FRONTEND</h3>
+                    <p>> React</p>
+                    <p>> Vue 3</p>
+                    <p>> Three.js</p>
+                    <p>> WebGL</p>
+                    <p>> WASM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>// SYSTEM_STATS</h2>
+            <div class="stats-container">
+                <div>
+                    <img id="github-stats" src="https://github-readme-stats.vercel.app/api?username=ElliotV56&theme=dark&show_icons=true&include_all_commits=true" alt="GitHub Stats">
+                </div>
+                <div>
+                    <img id="github-streak" src="https://github-readme-streak-stats.herokuapp.com/?user=ElliotV56&theme=dark&background=000000&border=00F0FF&stroke=BC13FE" alt="GitHub Streak">
+                </div>
+                <div>
+                    <img id="github-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ElliotV56&theme=dark&layout=compact&langs_count=8" alt="Top Languages">
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote">
+            "ACCESS GRANTED TO SECURE SYSTEMS // THE QUIETER YOU BECOME, THE MORE YOU CAN HEAR"
+        </div>
+    </div>
+
+    <script>
+        // Add terminal typing effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('h1, h2, h3, p, .social-link');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.animation = 'fadeIn 1s forwards';
+            });
+        });
+        
+        // Add scanline effect to container
+        const container = document.querySelector('.cyber-container');
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            container.style.setProperty('--mouse-x', x);
+            container.style.setProperty('--mouse-y', y);
+        });
+    </script>
+</body>
+</html>
